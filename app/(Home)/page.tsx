@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 const URL = 'https://nomad-movies.nomadcoders.workers.dev/movies';
 
 const getMovies = async () => {
-  new Promise((resolve) => setTimeout(resolve, 5000));
+  new Promise((resolve) => setTimeout(resolve, 10000));
   const response = await fetch(URL);
   const json = await response.json();
   return json;
