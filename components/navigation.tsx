@@ -8,7 +8,7 @@ export default function Navigation() {
 
   return (
     <nav className={styles.nav}>
-      <ul className={styles.list}>
+      <ul>
         <li>
           <Link href='/'>Home{path === '/' ? '🔥' : ''}</Link>
         </li>
