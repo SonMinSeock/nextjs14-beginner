@@ -140,6 +140,7 @@ body {
   background-color: black;
   color: white;
   font-size: 18px;
+  box-sizing: border-box;
 }
 
 a {

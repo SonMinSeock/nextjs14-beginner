@@ -4,18 +4,23 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
   padding-bottom: 100px;
 }
 
-.container iframe {
-  border-radius: 10px;
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
+.container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.container iframe:hover {
-  opacity: 1;
+.container div img {
+  width: 130px; /* 정사각형으로 고정 */
+  height: 130px;
+  border-radius: 50%; /* 원형 */
+  object-fit: cover;
 }
 
 .title {
