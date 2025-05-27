@@ -3,7 +3,7 @@ import MovieInfo, { getMovie } from '../../../../components/movie-info';
 import MovieVideos from '../../../../components/movie-videos';
 import MovieCredits from '../../../../components/movie-credits';
 
-interface IParams {
+export interface IParams {
   params: {
     id: string;
   };
