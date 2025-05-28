@@ -1,5 +1,4 @@
 import Movie from '../../../../../components/movie';
-import { IParams } from '../page';
 import styles from '../../../../../styles/movie-similar.module.css';
 import { Metadata } from 'next';
 import { API_URL } from '../../../../../lib/constans';
@@ -23,7 +22,11 @@ const getSimilars = async (id: string) => {
   }
 };
 
-export default async function Similar({ params: { id } }: IParams) {
+export default async function Similar({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   const similars = await getSimilars(id);
 
   if (!similars || similars.length === 0) {

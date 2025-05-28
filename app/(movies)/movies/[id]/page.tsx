@@ -3,19 +3,21 @@ import MovieInfo, { getMovie } from '../../../../components/movie-info';
 import MovieVideos from '../../../../components/movie-videos';
 import MovieCredits from '../../../../components/movie-credits';
 
-export interface IParams {
-  params: {
-    id: string;
-  };
-}
-
-export async function generateMetadata({ params: { id } }: IParams) {
+export async function generateMetadata({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   const movie = await getMovie(id);
 
   return { title: movie.title };
 }
 
-export default function MovieDetail({ params: { id } }: IParams) {
+export default function MovieDetail({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   return (
     <div>
       <Suspense fallback={<h1>Loading movie info</h1>}>
