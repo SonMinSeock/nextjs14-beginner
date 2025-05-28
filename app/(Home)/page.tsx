@@ -9,24 +9,36 @@ export const metadata: Metadata = {
 export const API_URL = 'https://nomad-movies.nomadcoders.workers.dev/movies';
 
 const getMovies = async () => {
-  // new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch(API_URL);
-  const json = await response.json();
-  return json;
+  try {
+    const response = await fetch(API_URL);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movies: ${response.status}`);
+    }
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    return [];
+  }
 };
 
 export default async function Home() {
   const movies = await getMovies();
+
   return (
-    <div className={styles.container}>
-      {movies.map((movie) => (
-        <Movie
-          key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          poster_path={movie.poster_path}
-        />
-      ))}
+    <div className={movies.length > 0 ? styles.container : ''}>
+      {movies.length > 0 ? (
+        movies.map((movie) => (
+          <Movie
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+          />
+        ))
+      ) : (
+        <p>No movies found.</p>
+      )}
     </div>
   );
 }

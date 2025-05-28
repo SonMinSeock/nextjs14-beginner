@@ -4,12 +4,24 @@ import styles from '../styles/movie-info.module.css';
 
 export async function getMovie(id: string) {
   //   new Promise((resolve) => setTimeout(resolve, 3000));
-  const response = await fetch(`${API_URL}/${id}`);
-  return response.json();
+  try {
+    const response = await fetch(`${API_URL}/${id}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movie info: ${response.status}`);
+    }
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching movie info:', error);
+    return null;
+  }
 }
 
 export default async function MovieInfo({ id }: { id: string }) {
   const movie = await getMovie(id);
+
+  if (!movie) {
+    return <p>Failed to load movie info.</p>;
+  }
 
   return (
     <div className={styles.container}>
