@@ -4,20 +4,22 @@ import MovieVideos from '../../../../components/movie-videos';
 import MovieCredits from '../../../../components/movie-credits';
 
 export async function generateMetadata({
-  params: { id },
+  params: paramsPromise,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await paramsPromise;
   const movie = await getMovie(id);
-
   return { title: movie.title };
 }
 
-export default function MovieDetail({
-  params: { id },
+export default async function MovieDetail({
+  params: paramsPromise,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await paramsPromise;
+
   return (
     <div>
       <Suspense fallback={<h1>Loading movie info</h1>}>

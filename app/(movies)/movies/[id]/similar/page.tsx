@@ -23,10 +23,11 @@ const getSimilars = async (id: string) => {
 };
 
 export default async function Similar({
-  params: { id },
+  params: paramsPromise,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await paramsPromise;
   const similars = await getSimilars(id);
 
   if (!similars || similars.length === 0) {
@@ -34,7 +35,7 @@ export default async function Similar({
   }
 
   return (
-    <div className={similars.length > 0 ? styles.container : ''}>
+    <div className={styles.container}>
       {similars.map((similar) => (
         <Movie
           key={similar.id}
