@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { API_URL } from '../app/(Home)/page';
 import styles from '../styles/movie-info.module.css';
+import { API_URL } from '../lib/constans';
 
 export async function getMovie(id: string) {
   //   new Promise((resolve) => setTimeout(resolve, 3000));

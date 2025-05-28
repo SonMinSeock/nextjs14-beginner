@@ -1,8 +1,8 @@
-import { API_URL } from '../../../../(Home)/page';
 import Movie from '../../../../../components/movie';
 import { IParams } from '../page';
 import styles from '../../../../../styles/movie-similar.module.css';
 import { Metadata } from 'next';
+import { API_URL } from '../../../../../lib/constans';
 
 export const metadata: Metadata = {
   title: 'Similar',

@@ -8,7 +8,9 @@
     "format": "prettier --check \"./app/**/*.{js,jsx,ts,tsx}\" \"./components/**/*.{js,jsx,ts,tsx}\"",
     "format:fix": "prettier --write \"./app/**/*.{js,jsx,ts,tsx}\" \"./components/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"./app/**/*.{js,jsx,ts,tsx}\" \"./components/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --fix \"./app/**/*.{js,jsx,ts,tsx}\" \"./components/**/*.{js,jsx,ts,tsx}\""
+    "lint:fix": "eslint --fix \"./app/**/*.{js,jsx,ts,tsx}\" \"./components/**/*.{js,jsx,ts,tsx}\"",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
